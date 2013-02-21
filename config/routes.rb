@@ -1,10 +1,12 @@
 MjgServer::Application.routes.draw do
 
+  resources :todos
+
   devise_for :admins
 
   devise_for :users
 
-  # root :to => 'todo#index'
+  root :to => 'todos#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
