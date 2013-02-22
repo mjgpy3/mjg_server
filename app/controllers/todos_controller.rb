@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_admin!
 
   # GET /todos
   # GET /todos.json
