@@ -83,4 +83,12 @@ class TodosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # Sets the todo with id :todo_id to complete
+  def complete
+    @todo = Todo.find(params[:todo_id])
+    @todo.completed = true
+    @todo.save
+    redirect_to(:back, :notice => "Set to complete")
+  end
 end

@@ -1,6 +1,8 @@
 MjgServer::Application.routes.draw do
 
-  resources :todos
+  resources :todos do
+    get :complete
+  end
 
   devise_for :admins
 
