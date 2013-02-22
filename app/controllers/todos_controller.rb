@@ -45,6 +45,8 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(params[:todo])
 
+    @todo.admin_id = current_admin.id
+
     respond_to do |format|
       if @todo.save
         format.html { redirect_to @todo, notice: 'Todo was successfully created.' }

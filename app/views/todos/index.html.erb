@@ -2,7 +2,7 @@
 
 
 <% @todos.each do |todo| %>
-  <% if not todo.completed %>
+  <% if not todo.completed and todo.admin_id == current_admin.id %>
     <table style="background-color:<%= todo.color %>">
       <tr>
         <td colspan="4" width="100px"><%= todo.description %></td>
@@ -20,3 +20,4 @@
 <br />
 
 <%= link_to 'New Todo', new_todo_path %>
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
