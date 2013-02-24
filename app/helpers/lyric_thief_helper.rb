@@ -1,0 +1,2 @@
+module LyricThiefHelper
+end

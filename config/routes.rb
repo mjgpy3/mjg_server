@@ -1,5 +1,9 @@
 MjgServer::Application.routes.draw do
 
+  get "lyric_thief/search"
+
+  get "lyric_thief/view"
+
   resources :todos do
     get :complete
   end
