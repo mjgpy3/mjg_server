@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
 
-  before_filter :authenticate_admin!
+  before_filter :authenticate_user!
 
   # GET /todos
   # GET /todos.json
@@ -45,7 +45,7 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(params[:todo])
 
-    @todo.admin_id = current_admin.id
+    @todo.user_id = current_user.id
 
     respond_to do |format|
       if @todo.save
