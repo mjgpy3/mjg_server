@@ -8,8 +8,7 @@ MjgServer::Application.routes.draw do
     get :complete
   end
 
-  devise_for :admins
-
+  devise_for :admins, :controllers => { :registrations => "registrations" }
   devise_for :users
 
   root :to => 'todos#index'
