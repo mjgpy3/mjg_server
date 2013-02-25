@@ -93,4 +93,5 @@ class TodosController < ApplicationController
     @todo.save
     redirect_to(:back, :notice => "Set to complete")
   end
+
 end

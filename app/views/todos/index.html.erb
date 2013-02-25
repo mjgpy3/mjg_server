@@ -2,14 +2,14 @@
 
 
 <% @todos.each do |todo| %>
-  <% if not todo.completed and todo.admin_id == current_admin.id %>
+  <% if not todo.completed and todo.user_id == current_user.id %>
     <table style="background-color:<%= todo.color %>">
       <tr>
         <td colspan="4" width="100px"><%= todo.description %></td>
       </tr>
       <tr>
         <td><%= link_to 'Done', todo_complete_path(:todo_id => todo) %> |</td>
-        <td><%= link_to 'Show', todo %> |</td> 
+        <td><%= link_to 'Show', todo %> |</td>
         <td><%= link_to 'Edit', edit_todo_path(todo) %> |</td>
         <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

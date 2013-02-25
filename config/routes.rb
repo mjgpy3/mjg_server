@@ -1,14 +1,9 @@
 MjgServer::Application.routes.draw do
-
-  get "lyric_thief/search"
-
-  get "lyric_thief/view"
+  devise_for :users
 
   resources :todos do
     get :complete
   end
-
-  devise_for :users
 
   root :to => 'todos#index'
 

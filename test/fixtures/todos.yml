@@ -4,8 +4,10 @@ one:
   description: MyText
   color: MyString
   completed: false
+  user_id: 1
 
 two:
   description: MyText
   color: MyString
   completed: false
+  user_id: 1
