@@ -1,5 +1,9 @@
 MjgServer::Application.routes.draw do
 
+  get "lyric_thief/index"
+
+  get "lyric_thief/display"
+
   resources :todos
 
   devise_for :users
