@@ -11,6 +11,8 @@
 <% if not params[:controller].include? 'devise'%>
   <table>
     <tr>
+      <td><%= link_to "Todos", todos_path %></td>
+      <td><%= link_to "Lyric Thief", lyric_thief_index_path %></td>
       <td><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></td>
     </tr>
   </table>
