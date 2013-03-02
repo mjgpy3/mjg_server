@@ -1,2 +1,7 @@
-<h1>LyricThief#index</h1>
-<p>Find me in app/views/lyric_thief/index.html.erb</p>
+<h1>LyricThief Web Edition</h1>
+
+<%= form_tag "/lyric_thief/display", :method => :get do %>
+  <p>Artist Name: <%= text_field_tag "artist"  %></p>
+  <p>Song Name: <%= text_field_tag "song_name" %></p>
+  <%= submit_tag "Get Lyrics!" %>
+<% end %>

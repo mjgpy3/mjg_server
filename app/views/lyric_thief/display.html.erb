@@ -1,2 +1,13 @@
-<h1>LyricThief#display</h1>
-<p>Find me in app/views/lyric_thief/display.html.erb</p>
+<h2><%= @artist %> - <%= @song %></h2>
+
+<% if @result == "" %>
+  <h4>Song not found!</h4>
+<% else %>
+  <p>
+  <% @result.lines.each do |line| %>
+    <%= line %><br/>
+  <% end %>
+  </p>
+<% end %>
+
+<%= link_to "Back", lyric_thief_index_path %>
