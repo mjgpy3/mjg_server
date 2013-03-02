@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<% if not params[:controller].include? 'devise'%>
+  <table>
+    <tr>
+      <td><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></td>
+    </tr>
+  </table>
+<% end %>
+
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
