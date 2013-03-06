@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <b>Color:</b>
-  <%= @todo.color %>
+  <b style="border:solid 2px;background-color:<%= @todo.color %>;">Color</b>
+  (<%= @todo.color %>)
 </p>
 
 <%= link_to 'Edit', edit_todo_path(@todo) %> |
