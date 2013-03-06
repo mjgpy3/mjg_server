@@ -10,6 +10,7 @@
 <body>
 
 <% if not params[:controller].include? 'devise'%>
+<!-- We are in a legitimate user account -->
   <table>
     <tr>
       <td><%= link_to "Todos", todos_path %></td>
