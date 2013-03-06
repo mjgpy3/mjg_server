@@ -1,3 +1,5 @@
+<%= javascript_include_tag "todos_js_helpers" %>
+
 <%= form_for(@todo) do |f| %>
   <% if @todo.errors.any? %>
     <div id="error_explanation">
@@ -15,6 +17,24 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
+
+  <table border="1">
+    <tr>
+      <td style="background-color:lightblue;" onclick="color_selected(this)">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td style="background-color:lightgreen;" onclick="color_selected(this)">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td style="background-color:lightyellow;" onclick="color_selected(this)">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td style="background-color:pink;" onclick="color_selected(this)">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td style="background-color:lightgray;" onclick="color_selected(this)">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="background-color:orange;" onclick="color_selected(this)">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td style="background-color:#9E7BFF;" onclick="color_selected(this)">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td style="background-color:#F6358A;" onclick="color_selected(this)">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td style="background-color:#87AFC7;" onclick="color_selected(this)">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td style="background-color:white;" onclick="color_selected(this)">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+  </table>
+
   <div class="field">
     <%= f.label :color %><br />
     <%= f.text_field :color %>
