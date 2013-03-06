@@ -1,8 +1,10 @@
+<%= javascript_include_tag "todos_js_helpers" %>
+
 <h1>Listing todos</h1>
 
 <% @todos.each do |todo| %>
   <% if not todo.completed and todo.user_id == current_user.id %>
-    <table style="background-color:<%= todo.color %>">
+    <table onmouseover="box(this)" onmouseout="unbox(this)" style="background-color:<%= todo.color %>">
       <tr>
         <td colspan="4" width="100px"><%= todo.description %></td>
       </tr>

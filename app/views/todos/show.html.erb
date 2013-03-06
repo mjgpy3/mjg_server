@@ -10,16 +10,5 @@
   <%= @todo.color %>
 </p>
 
-<p>
-  <b>Completed:</b>
-  <%= @todo.completed %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @todo.user_id %>
-</p>
-
-
 <%= link_to 'Edit', edit_todo_path(@todo) %> |
 <%= link_to 'Back', todos_path %>
