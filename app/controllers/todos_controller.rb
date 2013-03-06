@@ -18,9 +18,13 @@ class TodosController < ApplicationController
   def show
     @todo = Todo.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @todo }
+    if current_user_owns_todo? @todo
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @todo }
+      end
+    else
+      redirect_to(todos_path, :alert => "Not a valid action!")
     end
   end
 
@@ -38,6 +42,10 @@ class TodosController < ApplicationController
   # GET /todos/1/edit
   def edit
     @todo = Todo.find(params[:id])
+
+    if not current_user_owns_todo? @todo
+      redirect_to(todos_path, :alert => "Not a valid action!")
+    end
   end
 
   # POST /todos
@@ -63,14 +71,18 @@ class TodosController < ApplicationController
   def update
     @todo = Todo.find(params[:id])
 
-    respond_to do |format|
-      if @todo.update_attributes(params[:todo])
-        format.html { redirect_to @todo, notice: 'Todo was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @todo.errors, status: :unprocessable_entity }
+    if current_user_owns_todo? @todo
+      respond_to do |format|
+        if @todo.update_attributes(params[:todo])
+          format.html { redirect_to @todo, notice: 'Todo was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @todo.errors, status: :unprocessable_entity }
+       end
       end
+    else
+      redirect_to(todos_path, :alert => "Not a valid action!")
     end
   end
 
@@ -78,20 +90,35 @@ class TodosController < ApplicationController
   # DELETE /todos/1.json
   def destroy
     @todo = Todo.find(params[:id])
-    @todo.destroy
 
-    respond_to do |format|
-      format.html { redirect_to todos_url }
-      format.json { head :no_content }
+    if current_user_owns_todo? @todo
+      @todo.destroy
+      respond_to do |format|
+        format.html { redirect_to todos_url }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to(todos_path, :alert => "Not a valid action!")
     end
   end
 
   # Sets the todo with id :todo_id to complete
   def complete
     @todo = Todo.find(params[:todo_id])
-    @todo.completed = true
-    @todo.save
-    redirect_to(:back, :notice => "Set to complete")
+
+    if current_user_owns_todo? @todo
+      @todo.completed = true
+      @todo.save
+      redirect_to(:back, :notice => "Set to complete")
+    else
+      redirect_to(todos_path, :alert => "Not a valid action!")
+    end
+  end
+
+private
+
+  def current_user_owns_todo?(todo)
+    current_user.id == todo.user_id
   end
 
 end
