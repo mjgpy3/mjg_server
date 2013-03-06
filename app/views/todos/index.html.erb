@@ -6,7 +6,7 @@
   <% if not todo.completed and todo.user_id == current_user.id %>
     <table onmouseover="box(this)" onmouseout="unbox(this)" style="background-color:<%= todo.color %>">
       <tr>
-        <td colspan="4" width="100px"><%= todo.description %></td>
+        <td colspan="4" width="100px"><b><%= todo.description %></b></td>
       </tr>
       <tr>
         <td><%= link_to 'Done', todo_complete_path(:todo_id => todo) %> |</td>
