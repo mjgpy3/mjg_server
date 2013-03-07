@@ -1,3 +1,6 @@
 == MJG Server
 
-A pet project server I am making to mess around with RoR and some other languages
+A pet project server I am making to mess around with RoR and some other languages.
+
+To get the LyricThief portion to work correctly make sure you start
+the LyricThiefServer (should be /python_code/simple_lyric_thief_server.py).
