@@ -6,9 +6,5 @@ class TexTrierController < ApplicationController
 
   def show
     @tex_code = params[:tex_code]
-
-    # TODO: Handle tex code in corrisponding view
-
-    monkey
   end
 end

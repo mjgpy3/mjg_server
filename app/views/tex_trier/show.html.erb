@@ -1,2 +1,7 @@
-<h1>TexTrier#show</h1>
-<p>Find me in app/views/tex_trier/show.html.erb</p>
+<h1>\( \LaTeX \) Output (Powered by MathJax):</h1>
+
+<p>
+<% @tex_code.lines do |line| %>
+<%= line %><br />
+<% end %> 
+</p>
