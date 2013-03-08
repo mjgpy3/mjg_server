@@ -1,0 +1,6 @@
+<h1>Tex Trier</h1>
+
+<%= form_tag "/tex_trier/show", :method => :get do %>
+  <%= text_area_tag "tex_code" %><br />
+  <%= submit_tag "Try Tex" %>
+<% end %>

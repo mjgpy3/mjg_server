@@ -1,5 +1,9 @@
 MjgServer::Application.routes.draw do
 
+  get "tex_trier/index"
+
+  get "tex_trier/show"
+
   get "lyric_thief/index"
 
   get "lyric_thief/display"
