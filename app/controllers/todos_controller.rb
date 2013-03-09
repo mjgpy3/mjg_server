@@ -7,8 +7,6 @@ class TodosController < ApplicationController
   def index
     @todos = Todo.all
 
-    MONKEY
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @todos }
@@ -59,7 +57,7 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.save
-        format.html { redirect_to @todo, :notice => "Todo created successfully" }
+        format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
         format.json { render json: @todo, status: :created, location: @todo }
       else
         format.html { render action: "new" }
@@ -76,7 +74,7 @@ class TodosController < ApplicationController
     if current_user_owns_todo? @todo
       respond_to do |format|
         if @todo.update_attributes(params[:todo])
-          format.html { redirect_to @todo, :notice => "Todo updated successfully" }
+          format.html { redirect_to @todo, notice: 'Todo was successfully updated.' }
           format.json { head :no_content }
         else
           format.html { render action: "edit" }
