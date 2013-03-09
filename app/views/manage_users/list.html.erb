@@ -1,18 +1,18 @@
 <h1>Users</h1>
 
-<table border="1">
-  <tr>
+<table class="user_list" border="1">
+  <tr class="header">
     <th>Id</th>
     <th>Email</th>
     <th>Admin</th>
     <th>Creation Date</th>
   </tr>
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.id %></td>
-    <td><%= user.email %></td>
-    <td><%= user.is_admin %></td>
-    <td><%= user.created_at %></td>
+<% 0.upto(@users.length-1) do |i| %>
+  <tr class="<% if i % 2 == 0%>odd-row<% else %>even-row<% end %>">
+    <td><%= @users[i].id %></td>
+    <td><%= @users[i].email %></td>
+    <td><%= @users[i].is_admin %></td>
+    <td><%= @users[i].created_at %></td>
   </tr>
 <% end %>
 </table>

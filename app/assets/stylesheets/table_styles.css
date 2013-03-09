@@ -1,0 +1,12 @@
+tr.odd-row {
+  background-color: white;
+}
+
+tr.even-row {
+  background-color: lightblue;
+}
+
+tr.header {
+  background-color: black;
+  color: white;
+}
