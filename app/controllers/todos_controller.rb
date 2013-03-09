@@ -74,10 +74,10 @@ class TodosController < ApplicationController
     if current_user_owns_todo? @todo
       respond_to do |format|
         if @todo.update_attributes(params[:todo])
-          format.html { redirect_to @todo }
+          format.html { redirect_to @todo, :notice => "Todo updated successfully" }
           format.json { head :no_content }
         else
-          format.html { render action: "edit", :notice => "Todo created successfully" }
+          format.html { render action: "edit" }
           format.json { render json: @todo.errors, status: :unprocessable_entity }
        end
       end
