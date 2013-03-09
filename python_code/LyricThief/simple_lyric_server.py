@@ -64,7 +64,13 @@ class LyricServer(object):
                 return
                 
             self.try_get_lyrics()
-            client.send(self.lyrics)
+
+            # Try sending the lyrics line-by line because of the text cut-off
+
+            for line in self.lyrics.split('\n'):
+                client.send(line+'\n')
+
+            # client.send(self.lyrics)
             print "Lyric Thief Server: Sent Lyrics, Closing Connection"
             client.close()
        
