@@ -1,7 +1,8 @@
-<h1>Users</h1>
+<%= form_tag "/todos", :method => :get do %>
 
 <table class="user_list" border="1">
   <tr class="header">
+    <th></th>
     <th>Id</th>
     <th>Email</th>
     <th>Admin</th>
@@ -9,6 +10,7 @@
   </tr>
 <% 0.upto(@users.length-1) do |i| %>
   <tr class="<% if i % 2 == 0%>odd-row<% else %>even-row<% end %>">
+    <td><%= check_box_tag "selected_user#{@users[i].id}", @users[i].id %></td>
     <td><%= @users[i].id %></td>
     <td><%= @users[i].email %></td>
     <td><%= @users[i].is_admin %></td>
@@ -16,3 +18,7 @@
   </tr>
 <% end %>
 </table>
+
+<%= submit_tag "Test"%>
+
+<% end %>
