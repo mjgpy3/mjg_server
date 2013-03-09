@@ -70,7 +70,6 @@ class LyricServer(object):
             for line in self.lyrics.split('\n'):
                 client.send(line+'\n')
 
-            # client.send(self.lyrics)
             print "Lyric Thief Server: Sent Lyrics, Closing Connection"
             client.close()
        
