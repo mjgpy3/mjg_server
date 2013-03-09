@@ -17,6 +17,9 @@
      Let's display the menu-bar -->
   <table>
     <tr>
+      <% if current_user.is_admin? %>
+      <td><%= link_to "Manage Users", manage_users_list_path %></td>
+      <% end %>
       <td><%= link_to "Todos", todos_path %></td>
       <td><%= link_to "Lyric Thief", lyric_thief_index_path %></td>
       <td><%= link_to "Tex Trier", tex_trier_index_path %></td>
