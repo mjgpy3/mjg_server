@@ -9,4 +9,9 @@ tr.even-row {
 tr.header {
   background-color: black;
   color: white;
+  font-style: italic;
+}
+
+tr.header th {
+  padding: 5px;
 }
