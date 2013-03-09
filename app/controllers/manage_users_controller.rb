@@ -2,6 +2,7 @@ class ManageUsersController < ApplicationController
   before_filter :authenticate_user!, :authenticate_admin
 
   def list
+    @users = User.all
   end
 
 private

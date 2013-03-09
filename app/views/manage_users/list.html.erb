@@ -1,2 +1,14 @@
-<h1>ManageUsers#list</h1>
-<p>Find me in app/views/manage_users/list.html.erb</p>
+<h1>Users</h1>
+
+<table border="1">
+  <tr>
+    <th>Email</th>
+    <th>Admin</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>
+    <td><%= user.is_admin %></td>
+  </tr>
+<% end %>
+</table>
