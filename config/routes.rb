@@ -1,5 +1,7 @@
 MjgServer::Application.routes.draw do
 
+  get "manage_users/list"
+
   get "tex_trier/index"
 
   get "tex_trier/show"
