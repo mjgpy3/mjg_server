@@ -1,13 +1,12 @@
 MjgServer::Application.routes.draw do
 
   get "manage_users/list"
+  get "manage_users/delete_multiple"
 
   get "tex_trier/index"
-
   get "tex_trier/show"
 
   get "lyric_thief/index"
-
   get "lyric_thief/display"
 
   resources :todos

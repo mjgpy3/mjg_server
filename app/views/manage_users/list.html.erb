@@ -1,4 +1,4 @@
-<%= form_tag "/todos", :method => :get do %>
+<%= form_tag "/manage_users/delete_multiple", :method => :get do %>
 
 <table class="user_list" border="1">
   <tr class="header">
@@ -19,6 +19,6 @@
 <% end %>
 </table>
 
-<%= submit_tag "Test"%>
+<%= submit_tag "Delete", data: { confirm: 'Are you sure?' }%>
 
 <% end %>
