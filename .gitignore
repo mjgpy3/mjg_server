@@ -17,3 +17,5 @@
 # Ignore swp and pyc files
 *.pyc
 *.swp
+*.coffee
+*.scss

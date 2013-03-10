@@ -1,7 +1,8 @@
-<h1>LyricThief Web Edition</h1>
-
-<%= form_tag "/lyric_thief/display", :method => :get do %>
-  <p>Artist Name: <%= text_field_tag "artist"  %></p>
-  <p>Song Name: <%= text_field_tag "song_name" %></p>
-  <%= submit_tag "Get Lyrics!" %>
-<% end %>
+<div class="lyric-thief-module">
+  <h1>LyricThief Web Edition</h1>
+  <%= form_tag "/lyric_thief/display", :method => :get do %>
+    <p>Artist Name: <%= text_field_tag "artist"  %></p>
+    <p>Song Name: <%= text_field_tag "song_name" %></p>
+    <%= submit_tag "Get Lyrics!" %>
+  <% end %>
+</div>

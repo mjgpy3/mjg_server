@@ -2,7 +2,7 @@
 # Author: Michael Gilliland, Purpose: cleans out any files with to_remove
 # as extension
 
-to_remove="pyc swp"
+to_remove="pyc swp coffee scss"
 
 for clean_name in $to_remove; do
   echo "Attempting to clean $clean_name files"
