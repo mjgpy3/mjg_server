@@ -5,7 +5,7 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-    @todos = Todo.all
+    @todos = current_user.todos
 
     respond_to do |format|
       format.html # index.html.erb

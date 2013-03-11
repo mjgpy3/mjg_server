@@ -3,7 +3,7 @@
 <h1>Listing todos</h1>
 
 <% @todos.each do |todo| %>
-  <% if not todo.completed and todo.user_id == current_user.id %>
+  <% if not todo.completed %>
     <table onmouseover="box(this)" onmouseout="unbox(this)" style="background-color:<%= todo.color %>">
       <tr>
         <td colspan="4" width="100px"><b><%= todo.description %></b></td>
