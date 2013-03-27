@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  description: MyText
-  color: MyString
+  description: "Get something done"
+  color: "blue"
   completed: false
   user_id: 1
 
 two:
-  description: MyText
-  color: MyString
+  description: "Do something cool"
+  color: "lightpink"
   completed: false
   user_id: 1
