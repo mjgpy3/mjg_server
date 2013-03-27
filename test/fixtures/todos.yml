@@ -11,3 +11,10 @@ two:
   color: "lightpink"
   completed: false
   user_id: 1
+
+three:
+  id: 3
+  description: "Delete me"
+  color: "pink"
+  completed: false
+  user_id: 1
