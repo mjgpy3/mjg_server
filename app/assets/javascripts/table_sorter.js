@@ -60,8 +60,6 @@ var setupTableFromElement = function(tableElement) {
   for (i = 0; i < rows.length; i += 1) {
     tableRowsAndData.rows.push(buildRow(headers, rows[i].children, rows[i]));
   }
-
-  console.log(tableRowsAndData.rows[0]["row_elem"]);
 };
 
 var compareHelper = function(val1, val2, numeric) {
@@ -129,8 +127,6 @@ var sortByHeaderElement = function(headerElement, numeric=false) {
   }
 
   tableRowsAndData.asc_sort = !tableRowsAndData.asc_sort;
-
-  console.log(sorted);
 
   rewriteTableWith(sorted)
 };
