@@ -1,12 +1,12 @@
 <%= form_tag "/manage_users/delete_multiple", :method => :get do %>
 
-<table class="user_list" border="1">
+<table class="sortable-table" border="1">
   <tr class="header">
     <th></th>
-    <th>Id</th>
-    <th>Email</th>
-    <th>Admin</th>
-    <th>Creation Date</th>
+    <th onclick="sortByHeaderElement(this, true)">Id</th>
+    <th onclick="sortByHeaderElement(this)">Email</th>
+    <th onclick="sortByHeaderElement(this)">Admin</th>
+    <th onclick="sortByHeaderElement(this, true)">Creation Date</th>
   </tr>
 <% 0.upto(@users.length-1) do |i| %>
   <tr class="<% if i % 2 == 0%>odd-row<% else %>even-row<% end %>">
