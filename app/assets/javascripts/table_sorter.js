@@ -13,7 +13,7 @@ var tableRowsAndData = {
   odd_class: "odd-row",
   even_class: "even-row",
   headers: [],
-  asc_sort: true
+  asc_sort: false
 };
 
 var buildRow = function(headerElements, rowCollection, rowElement) {
@@ -80,7 +80,7 @@ var compareHelper = function(val1, val2, numeric) {
 
 };
 
-var rewriteTableWith= function(newOrder) {
+var rewriteTableWith = function(newOrder) {
   var rows = $("table.sortable-table tr").get().slice(1),
       i,
       table = $("table.sortable-table").get()[0];
