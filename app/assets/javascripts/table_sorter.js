@@ -62,9 +62,24 @@ var setupTableFromElement = function(tableElement) {
   }
 };
 
+var removeNonNumericChars = function(value) {
+  var result = "",
+      i;
+
+  for (i = 0; i < value.length; i += 1) {
+    if (!isNaN(value[i])) {
+      result += value[i];
+    }
+  }
+
+  return result;
+};
+
 var compareHelper = function(val1, val2, numeric) {
 
   if (numeric) {
+    val1 = removeNonNumericChars(val1);
+    val2 = removeNonNumericChars(val2);
     if (tableRowsAndData.asc_sort) {
       return parseFloat(val1) <= parseFloat(val2);
     }
