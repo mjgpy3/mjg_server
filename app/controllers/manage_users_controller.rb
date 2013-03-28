@@ -3,6 +3,17 @@ class ManageUsersController < ApplicationController
 
   def list
     @users = User.all
+    json_objects =  []
+
+    @users.each do |user|
+      json_objects << "{\"id\": \"#{user.id}\"," + 
+                      "\"email\": \"#{user.email}\","+
+                      "\"admin\": \"#{(user.is_admin ? "true" : "false")}\","+
+                      " \"creation_date\": \"#{user.created_at}\","+
+                      "\"tr_elem\": \"\"}"
+    end
+
+    @users_json = "{\"users\": [#{ json_objects.join ',' }]}"
   end
 
   def delete_multiple
