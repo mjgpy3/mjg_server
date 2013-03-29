@@ -60,6 +60,9 @@ var setupTableFromElement = function(tableElement) {
   for (i = 0; i < rows.length; i += 1) {
     tableRowsAndData.rows.push(buildRow(headers, rows[i].children, rows[i]));
   }
+
+  rewriteTableWith(tableRowsAndData.rows);
+
 };
 
 var removeNonNumericChars = function(value) {
