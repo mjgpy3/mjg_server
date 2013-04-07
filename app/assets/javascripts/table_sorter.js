@@ -1,5 +1,7 @@
+
+// Make sure we have a sortable table before we 
+// setup the table (i.e. extract its rows and stuff)
 window.onload = function() {
-  // By convention, we don't want more than one sortable table in a page
   sortableTable = $("table.sortable-table").get()[0];
 
   if (sortableTable != undefined) {
@@ -7,14 +9,26 @@ window.onload = function() {
   }
 };
 
-var tableRowsAndData = {
+// The names of the style classes that even and odd rows
+// (alternating of course) will take on.
+var rowStyleClasses = {
+  odd: "odd-row",
+  even: "even-row"
+};
+
+// Stores the rows and headers from the table
+//
+var tableRowsAndHeaders = {
   rows: [],
-  table: null,
-  odd_class: "odd-row",
-  even_class: "even-row",
   headers: [],
   asc_sort: false
 };
+
+// Whether we are doing an ascending sort or not
+// (this is really just a toggle variable)
+var sortType = {
+  ascending: false
+}
 
 var buildRow = function(headerElements, rowCollection, rowElement) {
   var i,
@@ -52,16 +66,15 @@ var setupTableFromElement = function(tableElement) {
   headers = getTableHeaders();
   headersNames = getTableHeaderNameList(headers);
 
-  tableRowsAndData.headers = headersNames;
-  tableRowsAndData.table = tableElement;
+  tableRowsAndHeaders.headers = headersNames;
 
   rows = $("table.sortable-table tr").get().slice(1);
 
   for (i = 0; i < rows.length; i += 1) {
-    tableRowsAndData.rows.push(buildRow(headers, rows[i].children, rows[i]));
+    tableRowsAndHeaders.rows.push(buildRow(headers, rows[i].children, rows[i]));
   }
 
-  rewriteTableWith(tableRowsAndData.rows);
+  rewriteTableWith(tableRowsAndHeaders.rows);
 
 };
 
@@ -83,14 +96,14 @@ var compareHelper = function(val1, val2, numeric) {
   if (numeric) {
     val1 = removeNonNumericChars(val1);
     val2 = removeNonNumericChars(val2);
-    if (tableRowsAndData.asc_sort) {
+    if (sortType.ascending) {
       return parseFloat(val1) <= parseFloat(val2);
     }
 
     return parseFloat(val1) >= parseFloat(val2);
   }
 
-  if (tableRowsAndData.asc_sort) {
+  if (sortType.ascending) {
     return val1 <= val2;
   }
 
@@ -110,22 +123,22 @@ var rewriteTableWith = function(newOrder) {
   for (i = 0; i < newOrder.length; i += 1) {
     table.appendChild(newOrder[i]["row_elem"]);
     if (i % 2 == 0) {
-      newOrder[i]["row_elem"].className = tableRowsAndData.odd_class;
+      newOrder[i]["row_elem"].className = rowStyleClasses.odd;
     }
     else {
-      newOrder[i]["row_elem"].className = tableRowsAndData.even_class;
+      newOrder[i]["row_elem"].className = rowStyleClasses.even;
     }
   }
 };
 
 var sortByHeaderElement = function(headerElement, numeric=false) {
-  var toSort = tableRowsAndData.rows,
+  var toSort = tableRowsAndHeaders.rows,
       sortBy = headerElement.textContent,
       sorted,
       i,
       j;
 
-  if (tableRowsAndData.headers.indexOf(sortBy) !== -1) {
+  if (tableRowsAndHeaders.headers.indexOf(sortBy) !== -1) {
     for (i = 0; i < toSort.length; i += 1) {
       if (i == 0) {
         sorted = [toSort[i]];
@@ -144,7 +157,7 @@ var sortByHeaderElement = function(headerElement, numeric=false) {
     }
   }
 
-  tableRowsAndData.asc_sort = !tableRowsAndData.asc_sort;
+  sortType.ascending = !sortType.ascending;
 
   rewriteTableWith(sorted)
 };
