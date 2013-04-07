@@ -75,7 +75,6 @@ var setupTableFromElement = function(tableElement) {
   }
 
   rewriteTableWith(tableRowsAndHeaders.rows);
-
 };
 
 var removeNonNumericChars = function(value) {
@@ -108,7 +107,6 @@ var compareHelper = function(val1, val2, numeric) {
   }
 
   return val1 >= val2;
-
 };
 
 var rewriteTableWith = function(newOrder) {
